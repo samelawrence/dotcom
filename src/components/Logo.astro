@@ -1,7 +1,9 @@
 <style>
   img {
     display: block;
-    width: 75px;
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
   }
 
   @media screen and (max-width: 520px) {
@@ -9,8 +11,12 @@
       display: none;
     }
   }
+
+  :global(.transparent-body) a {
+    visibility: hidden;
+  }
 </style>
 
 <a href="/">
-  <img alt="Blog Logo" src="/assets/logo.webp" width="75" height="50" />
+  <img alt="Sam E. Lawrence" src="/assets/my-notion-face-transparent.png" width="90" height="90" />
 </a>

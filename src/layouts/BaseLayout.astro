@@ -8,15 +8,16 @@ interface Props {
   description: string;
   permalink?: string;
   current?: string;
+  transparentBody?: boolean;
 }
 
-const { title, description, permalink, current } = Astro.props;
+const { title, description, permalink, current, transparentBody } = Astro.props;
 ---
 <html lang="en">
 <head>
   <BaseHead title={title} description={description} permalink={permalink} />
 </head>
-<body>
+<body class:list={{ 'transparent-body': transparentBody }}>
   <div class="layout">
     <Header current={current} />
     <main>
@@ -28,10 +29,15 @@ const { title, description, permalink, current } = Astro.props;
 </html>
 
 <style>
+  body.transparent-body {
+    background-color: transparent;
+  }
+
   .layout {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    min-height: 100dvh;
   }
 
   main {

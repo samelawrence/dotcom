@@ -1,4 +1,5 @@
 :root {
+  color-scheme: light;
   --background-body: #fff;
   --text-main: #36393b;
   --text-secondary: #6b6f72;
@@ -8,7 +9,8 @@
 }
 
 :root.theme-dark {
-  --background-body: #202122;
+  color-scheme: dark;
+  --background-body: #24071b;
   --text-main: #fff;
   --text-secondary: #ccc;
   --primary-color: #548e9b;
@@ -16,6 +18,7 @@
 
 html {
   overflow-y: scroll;
+  background-color: var(--background-body);
 }
 
 @supports (scrollbar-gutter: stable) {
@@ -31,8 +34,37 @@ html {
   box-sizing: border-box;
 }
 
+/* Homepage nav sits over a dark photo in BOTH themes: force white text. */
+.transparent-body header nav a {
+  color: #fff;
+}
+
+.transparent-body header nav a:not(.selected) {
+  opacity: 0.9;
+}
+
+.transparent-body header .theme-toggle svg {
+  color: #fff;
+}
+
+.transparent-body footer {
+  padding-bottom: 1.5em;
+}
+
+@media screen and (max-width: 800px) {
+  .transparent-body footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 body {
   margin: 0;
+  min-height: 100dvh;
   font-family: var(--font-family-serif);
   font-size: 16px;
   line-height: 1.6;
