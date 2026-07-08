@@ -7,12 +7,19 @@ const { current = '' } = Astro.props;
 
 <style>
   header {
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 10;
     display: flex;
     margin: 0 auto;
     max-width: 1400px;
     padding: 2em;
     width: 100%;
+    background-color: var(--background-body);
+  }
+
+  :global(body.transparent-body) header {
+    background-color: transparent;
   }
 
   @media screen and (max-width: 520px) {
