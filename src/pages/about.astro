@@ -31,8 +31,15 @@ const permalink = new URL('/about', Astro.site).href;
 
   @media (max-width: 1020px) {
     .about-image {
-      float: none;
-      margin: 0 auto 2em;
+      float: right;
+      width: 20%;
+      max-width: none;
+      margin: 0 0 1em 1.5em;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
     }
   }
 </style>
