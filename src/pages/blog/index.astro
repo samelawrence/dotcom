@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const title = 'Blog';
+const title = 'Posts';
 const description = 'Latest articles.';
 const permalink = new URL('/blog', Astro.site).href;
 
@@ -13,7 +13,7 @@ const allPosts = (await getCollection('blog')).sort(
 
 <BaseLayout title={title} description={description} permalink={permalink} current="blog">
   <div class="container">
-    <h1>Blog</h1>
+    <p class="medium-note">I sometimes also write at <a href="https://medium.com/@samelawrence">Medium</a> and <a href="https://dev.to/samelawrence">Dev</a>.</p>
     {allPosts.map((post, index) => {
       const href = `/blog/${post.id}`;
       const formattedDate = post.data.pubDate.toLocaleDateString('en-US', {
@@ -51,5 +51,13 @@ const allPosts = (await getCollection('blog')).sort(
 
   hr {
     margin: 60px auto;
+  }
+
+  .medium-note {
+    font-family: var(--font-family-sans);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
   }
 </style>
